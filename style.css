@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap');
+
+:root{
+  --white: #fafafa;
+  --gray: #696969;
+  --black: #141414;
+  --weightMedium: 500;
+  --weightBold: 700;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,html{
+  height: 100%;
+  font-family: 'Epilogue', sans-serif;
+  
+}
+body{
+  overflow-x: hidden;
+}
+p{
+  font-weight: var(--weightMedium);
+  font-size: 18px;
+}
+ul,ol,li{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6vh;
+  position: relative;
+}
+.logo-image{
+  margin-top: 8.5px;
+}
+.logo-menu-section{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+.nav-item{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-items{
+  display: flex;
+  gap: 35px;
+  margin-right: -35%;
+  height: 100%;
+  align-items: center;
+}
+.nav-link{
+  color: var(--gray);
+  font-size: 1.1em;
+  transition: 0.3s ease-in-out;
+  opacity: 0.7;
+  position: relative;
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.nav-link:hover{
+  color: var(--black);
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+} 
+.expanded:hover i.fa-solid.fa-angle-up{
+  color: var(--black);
+  transition: 0.3s ease-in-out;
+  opacity: 1;
+  display: block;
+}
+.nav-link:hover i.fa-solid.fa-angle-down{
+  color: var(--black);
+  transition: 0.3s ease-in-out;
+}
+
+i.fa-solid.fa-angle-up {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  margin-top: 2px;
+  margin-left: 5px;
+  color: var(--gray);
+  opacity: 0.5;
+  right: -20%;
+  top:37%;
+  font-size: 0.8em;
+  transition: 0.3s ease-in-out;
+  
+}
+i.fa-solid.fa-angle-down {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  margin-top: 2px;
+  margin-left: 5px;
+  color: var(--gray);
+  opacity: 0.5;
+  right: -20%;
+  top:37%;
+  padding-left: 30px;
+  font-size: 0.8em;
+  transition: 0.3s ease-in-out;
+}
+.none{
+  display: none;
+
+}
+.block{
+  display: block;
+}
+.sub-menu{
+  position: absolute;
+  top: 100%;
+  display: none;
+  transition: all 2s ease; 
+  z-index: 100;
+  background-color: var(--white)
+}
+.sub-menu-link{
+  color: var(--gray);
+  
+}
+.sub-menu-left li a{
+  margin-left: 15px;
+}
+.sub-menu-link:hover{
+  color: var(--black);
+}
+
+.expanded:hover .sub-menu{
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  gap: 15px;
+  border-radius: 10px;
+  box-shadow: 1px 5px 10px var(--gray);
+  transform: translateX(30px) rotateZ(45deg) skewX(50deg);
+  animation:  drodownAnimation 0.5s forwards;
+  z-index: 100;
+}
+
+.expanded:hover .nav-link{
+  color: var(--black);
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+}
+@keyframes drodownAnimation {
+  0%{
+    opacity: 0;
+    transform: translateX(30px) rotateZ(15deg) skewX(50deg);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0px) rotateZ(0deg) skewX(0deg);
+  }
+}
+.form-nav{
+  padding-right: 40px;
+  display: flex;
+  gap: 30px;
+}
+
+.form-button{
+  display: block;
+  font-size: 1.1em;
+  color: var(--gray);
+  transition: 0.5s ease-in-out;
+  padding: 9px 20px;
+  opacity: 0.7;
+}
+.form-button:hover{
+  color: var(--black);
+  transition: 0.3s ease-in-out;
+  opacity: 1;
+}
+.register-button{
+  border: 1px solid var(--gray);
+  border-radius: 15px;
+}
+.register-button:hover{
+  border: 1px solid var(--black);
+  transition: 0.3s ease-in-out;
+}
+.icon-menu{
+  display: none;
+}
+.icon-menu:hover{
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+/* ------------ */
+/* MOBILE STYLE */
+/* ------------ */
+@keyframes menu-mobile {
+  0%{
+    right: -150%;
+  }
+  100%{
+    right: 0;
+  }
+}
+@keyframes menu-mobile-leave {
+  0%{
+    right: 0;
+  }
+  100%{
+    right: -150%;
+  }
+}
+
+.mobile-menu{
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 10;
+  justify-content: flex-start;
+  height: 100vh;
+  width: 260px;
+  padding: 20px;
+  top: 0;
+  right: -150%;
+  background-color: rgb(36, 35, 35);
+  
+}
+.enter-mobile-menu{
+  animation: menu-mobile 0.7s forwards;
+
+}
+.leave-mobile-menu{
+  animation: menu-mobile-leave 0.7s forwards;
+}
+.close-button{
+  align-self: flex-end;
+  margin-bottom: 40px;
+  color: var(--white);
+}
+.close-button:hover{
+  cursor: pointer;
+}
+.navigation{
+ 
+  width: 100%;
+  
+}
+.form-nav-mobile{
+  margin-top: 40px;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  flex-direction: column;
+  
+}
+.form-nav-mobile .form-button{
+  padding: 15px 0px;
+  color: var(--white);
+  opacity: 1;
+  
+}
+.form-nav-mobile .form-button:hover{
+  opacity: 0.5;
+}
+
+.mobile-links{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-left: 20px;
+  margin-top: 10px;
+  position: relative;
+  padding: 10px;
+  border-left: 2px solid white;
+  left: 100%;
+  display: none;
+}
+.open-mobile-links{
+  animation: opened-mobile-links 0.6s forwards;
+}
+@keyframes opened-mobile-links {
+  0%{
+    left: 100%;
+  }
+  100%{
+    left: 0;
+    display: block;
+  }
+}
+.mobile-links a{
+  color: rgba(255, 255, 255, 0.774);
+  transition: all 0.3s ease;
+}
+.mobile-links a:hover{
+  color: rgb(160, 137, 137);
+  transition: all 0.3s ease;
+}
+.open-feature{
+  font-size: 1.3em;
+  font-weight: 500;
+  color: white;
+  margin-top: 35px;
+}
+.open-feature:hover{
+  cursor: pointer;
+}
+.open-feature a{
+  color: white;
+}
+.mobile-features .open-feature i{
+  color: rgba(255, 255, 255, 0.774);
+  position: static;
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+}
+.mobile-menu .form-nav-mobile .register-button:hover{
+  border: 1px solid rgb(255, 255, 255);
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------------- */
+/* STYLE THE CONTENT */
+/* ----------------- */
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 920px) {
+  body{
+    overflow-x: hidden;
+  }
+  .nav-item{
+    display: none;
+  }
+  .logo-menu-section{
+    padding-left: 40px;
+  }
+  .form-nav{
+    display: none;
+  }
+  .icon-menu{
+    display: flex;
+    padding-right: 40px;
+  }
+  
+
+
+}
+
